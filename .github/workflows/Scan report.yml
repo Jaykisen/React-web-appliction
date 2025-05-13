@@ -1,11 +1,11 @@
-name: Generate React Project Report
+name: React Vulnerability Scan
 
 on:
   workflow_dispatch:
 
 jobs:
-  generate-report:
-    name: Scan and Create Report
+  scan-vulnerabilities:
+    name: Scan for Vulnerabilities
     runs-on: ubuntu-latest
 
     steps:
@@ -20,36 +20,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Generate Deployment Report
+      - name: Run npm audit and generate report
         run: |
-          echo "## React Project Deployment Report" > deployment-report.md
-          echo "" >> deployment-report.md
+          echo "## React Project Vulnerability Report" > vulnerability-report.md
+          echo "" >> vulnerability-report.md
+          echo "### npm audit results" >> vulnerability-report.md
+          echo '```' >> vulnerability-report.md
+          npm audit --json >> audit.json || true
+          cat audit.json | jq '.' >> vulnerability-report.md
+          echo '```' >> vulnerability-report.md
 
-          echo "### 1. Project Overview" >> deployment-report.md
-          echo "- Project Name: $(basename $GITHUB_REPOSITORY)" >> deployment-report.md
-          echo "- React Version: $(node -p \"require('./package.json').dependencies['react'] || require('./package.json').devDependencies['react'] || 'Unknown'\")" >> deployment-report.md
-          echo "- Build Tool: npm" >> deployment-report.md
-          echo "- Build Command: $(node -p \"require('./package.json').scripts.build || 'npm run build'\")" >> deployment-report.md
-          echo "- Output Directory: build/" >> deployment-report.md
-
-          echo "" >> deployment-report.md
-          echo "### 2. Environment Variables (.env file)" >> deployment-report.md
-          if [ -f ".env" ]; then
-            echo '```env' >> deployment-report.md
-            cat .env >> deployment-report.md
-            echo '```' >> deployment-report.md
-          else
-            echo "- No .env file found" >> deployment-report.md
-          fi
-
-          echo "" >> deployment-report.md
-          echo "### 3. Suggested Deployment Targets (manual fill-in)" >> deployment-report.md
-          echo "- Target (EC2 / S3 + Lambda / Other): " >> deployment-report.md
-          echo "- S3 Bucket (if static): " >> deployment-report.md
-          echo "- EC2 SSH Access needed: Yes/No" >> deployment-report.md
-
-      - name: Upload Report as Artifact
+      - name: Upload Vulnerability Report
         uses: actions/upload-artifact@v3
         with:
-          name: deployment-report
-          path: deployment-report.md
+          name: vulnerability-report
+          path: vulnerability-report.md
