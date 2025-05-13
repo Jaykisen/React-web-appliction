@@ -6,7 +6,7 @@ const StatsSection = () => {
     {
       id: 1,
       imgSrc: "https://live.themewild.com/eduka/assets/img/icon/course.svg",
-      number: "500",
+      number: "700",
       label: "+ Total Courses",
     },
     {
