@@ -1,12 +1,12 @@
-name: Scan React Project
+name: Generate React Project Report
 
 on:
   workflow_dispatch:
 
 jobs:
-  scan:
+  generate-report:
+    name: Scan and Create Report
     runs-on: ubuntu-latest
-    name: Analyze React App Repo
 
     steps:
       - name: Checkout Repository
@@ -20,22 +20,22 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Scan and Generate Report
+      - name: Generate Deployment Report
         run: |
           echo "## React Project Deployment Report" > deployment-report.md
           echo "" >> deployment-report.md
 
-          echo "### Project Overview" >> deployment-report.md
+          echo "### 1. Project Overview" >> deployment-report.md
           echo "- Project Name: $(basename $GITHUB_REPOSITORY)" >> deployment-report.md
-          echo "- React Version: $(npx react-scripts --version || echo 'Unknown')" >> deployment-report.md
+          echo "- React Version: $(node -p \"require('./package.json').dependencies['react'] || require('./package.json').devDependencies['react'] || 'Unknown'\")" >> deployment-report.md
           echo "- Build Tool: npm" >> deployment-report.md
-          echo "- Build Command: \`npm run build\`" >> deployment-report.md
-          echo "- Build Output Directory: \`build/\`" >> deployment-report.md
+          echo "- Build Command: $(node -p \"require('./package.json').scripts.build || 'npm run build'\")" >> deployment-report.md
+          echo "- Output Directory: build/" >> deployment-report.md
 
           echo "" >> deployment-report.md
-          echo "### Environment Variables in .env" >> deployment-report.md
+          echo "### 2. Environment Variables (.env file)" >> deployment-report.md
           if [ -f ".env" ]; then
-            echo '```' >> deployment-report.md
+            echo '```env' >> deployment-report.md
             cat .env >> deployment-report.md
             echo '```' >> deployment-report.md
           else
@@ -43,12 +43,12 @@ jobs:
           fi
 
           echo "" >> deployment-report.md
-          echo "### Deployment Targets (Manual Fill-In)" >> deployment-report.md
-          echo "- Target: (EC2 / S3 + Lambda / Other)" >> deployment-report.md
-          echo "- EC2 Instance Info: ___" >> deployment-report.md
-          echo "- S3 Bucket Name: ___" >> deployment-report.md
+          echo "### 3. Suggested Deployment Targets (manual fill-in)" >> deployment-report.md
+          echo "- Target (EC2 / S3 + Lambda / Other): " >> deployment-report.md
+          echo "- S3 Bucket (if static): " >> deployment-report.md
+          echo "- EC2 SSH Access needed: Yes/No" >> deployment-report.md
 
-      - name: Upload Deployment Report Artifact
+      - name: Upload Report as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: deployment-report
