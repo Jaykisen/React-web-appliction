@@ -1,35 +1,34 @@
-name: Code Security Scan
+name: Deploy React App to EC2
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main  # or change to your deployment branch
 
 jobs:
-  scan:
-    name: Audit and Lint React App
-    runs-on: ubuntu-latest  # Or your self-hosted runner if needed
+  build-and-deploy:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Run npm audit (Vulnerability Scan)
-        run: |
-          echo "=== npm audit report ==="
-          npm audit || true  # Allow vulnerabilities to be logged without failing job
+      - name: Build the React app
+        run: npm run build
 
-      - name: Run ESLint (if available)
-        run: |
-          if [ -f eslint.config.js ] || [ -f .eslintrc.js ]; then
-            echo "=== ESLint Report ==="
-            npx eslint . || true
-          else
-            echo "No ESLint config found, skipping lint check."
-          fi
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "dist/*"  # or "build/*" for Create React App
+          target: "/var/www/html"
