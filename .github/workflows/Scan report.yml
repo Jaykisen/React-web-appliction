@@ -1,0 +1,55 @@
+name: Scan React Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    name: Analyze React App Repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Scan and Generate Report
+        run: |
+          echo "## React Project Deployment Report" > deployment-report.md
+          echo "" >> deployment-report.md
+
+          echo "### Project Overview" >> deployment-report.md
+          echo "- Project Name: $(basename $GITHUB_REPOSITORY)" >> deployment-report.md
+          echo "- React Version: $(npx react-scripts --version || echo 'Unknown')" >> deployment-report.md
+          echo "- Build Tool: npm" >> deployment-report.md
+          echo "- Build Command: \`npm run build\`" >> deployment-report.md
+          echo "- Build Output Directory: \`build/\`" >> deployment-report.md
+
+          echo "" >> deployment-report.md
+          echo "### Environment Variables in .env" >> deployment-report.md
+          if [ -f ".env" ]; then
+            echo '```' >> deployment-report.md
+            cat .env >> deployment-report.md
+            echo '```' >> deployment-report.md
+          else
+            echo "- No .env file found" >> deployment-report.md
+          fi
+
+          echo "" >> deployment-report.md
+          echo "### Deployment Targets (Manual Fill-In)" >> deployment-report.md
+          echo "- Target: (EC2 / S3 + Lambda / Other)" >> deployment-report.md
+          echo "- EC2 Instance Info: ___" >> deployment-report.md
+          echo "- S3 Bucket Name: ___" >> deployment-report.md
+
+      - name: Upload Deployment Report Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-report
+          path: deployment-report.md
