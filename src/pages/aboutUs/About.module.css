@@ -1,0 +1,467 @@
+  .about-banner1 {
+    position: relative;
+    width: 100%;
+    height: 500px; 
+    background-image: url('https://img.freepik.com/free-photo/entrepreneurs-meeting-office_23-2148898680.jpg?ga=GA1.1.296228764.1729021107&semt=ais_incoming');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    box-sizing: border-box;
+  }
+
+  
+  .about-banner1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for contrast */
+  border-radius: 12px;
+  z-index: 1; /* Ensures the overlay is above the background image but below content */
+}
+
+  .about-banner1-text {
+    text-align: center;
+    color: #333; /* Dark text color */
+    font-family: 'Arial', sans-serif; /* Default font family */
+    font-size: 2rem; /* Font size for the heading */
+    font-weight: bold;
+  }
+  
+  .about-banner1-text h2 {
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  .head h2{
+    font-size: 28px;
+    text-align: center;
+    color: #000;
+    margin-top: 80px;
+    
+  }
+
+  .about-content {
+    padding: 20px; /* Add some spacing around the content */
+    font-family: 'Arial', sans-serif; /* Default font family */
+    font-size: 14px; 
+    line-height: 1.6; /* Improve readability */
+    color: #555; /* Medium gray text color */
+    margin: 0 230px;
+  }
+  
+  .about-content p {
+    margin-bottom: 15px; /* Space between paragraphs */
+    text-align: justify; /* Justify text alignment */
+  }
+  
+ 
+  .about-vision {
+    /* background-color: #f9f9f9; */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 230px;
+    max-width: 1200px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  
+  .about-vision h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .about-vision p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-vision p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Skills.module.css */
+
+.container5 {
+  text-align: center;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+  margin: 0 230px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+
+.aboutUs {
+  margin-top: 30px;
+  padding: 20px;
+  /* background-color: #e8f5e9; */
+  border-radius: 8px;
+  /* color: #2e7d32; */
+  
+  line-height: 1.6;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  margin: 0 230px;
+}
+
+.aboutUs h3 {
+  font-size: 24px;
+  font-weight: bold;
+  /* color: #1b5e20; */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.aboutUs p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.aboutUs img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.aboutUs .imageContainer {
+  display: flex;
+  justify-content: space-around; 
+  gap: 0; 
+  flex-wrap: nowrap; 
+}
+
+
+/* .about-banner1 */
+.about-banner1 {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url('https://img.freepik.com/free-photo/entrepreneurs-meeting-office_23-2148898680.jpg?ga=GA1.1.296228764.1729021107&semt=ais_incoming');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.about-banner1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.about-banner1-text {
+  text-align: center;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.about-banner1-text h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.head h2 {
+  font-size: 28px;
+  text-align: center;
+  color: #000;
+  margin-top: 80px;
+}
+
+/* Mobile responsiveness for about-banner1 */
+@media (max-width: 768px) {
+  .about-banner1 {
+    height: 350px; /* Reduce height for mobile */
+  }
+
+  .about-banner1-text {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* .about-content */
+.about-content {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 230px;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Mobile responsiveness for about-content */
+@media (max-width: 768px) {
+  .about-content {
+    margin: 0 20px; /* Add padding on smaller screens */
+  }
+  
+  .about-content p {
+    font-size: 16px; /* Adjust font size for mobile */
+  }
+}
+
+
+
+/* Mobile responsiveness for about-vision */
+@media (max-width: 768px) {
+  .about-vision {
+    margin: 0 20px; /* Margin for smaller screens */
+  }
+
+  .about-vision h2 {
+    font-size: 20px; /* Adjust heading font size */
+  }
+
+  .about-vision p {
+    font-size: 16px; /* Increase readability on small screens */
+  }
+}
+
+/* .skillsContainer5 */
+.container5 {
+  text-align: center;
+  padding: 20px;
+  margin: 0 230px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Mobile responsiveness for skillsContainer5 */
+@media (max-width: 768px) {
+  .container5 {
+    margin: 0 20px; /* Add margin on smaller screens */
+  }
+
+  .title {
+    font-size: 1.2rem; /* Adjust title font size */
+  }
+
+  .skillsContainer5 {
+    flex-direction: column; /* Stack skill boxes vertically */
+    gap: 10px; /* Adjust gap between items */
+  }
+}
+
+/* .aboutUs */
+.aboutUs {
+  margin-top: 30px;
+  padding: 20px;
+  line-height: 1.6;
+  margin: 0 230px;
+}
+
+.aboutUs h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.aboutUs p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Mobile responsiveness for aboutUs */
+@media (max-width: 768px) {
+  .aboutUs {
+    margin: 0 20px; /* Adjust margin on smaller screens */
+  }
+
+  .aboutUs h3 {
+    font-size: 20px; /* Adjust heading font size */
+  }
+
+  .aboutUs p {
+    font-size: 16px; /* Adjust paragraph font size */
+  }
+
+  .aboutUs .imageContainer {
+    display: flex;
+    flex-direction: column; /* Stack images vertically on mobile */
+    align-items: center; /* Center the images */
+  }
+}
+
+/* Image responsiveness inside aboutUs */
+@media (max-width: 768px) {
+  .aboutUs img {
+    width: 100%; /* Resize image for smaller screens */
+    margin-top: 10px; /* Adjust top margin */
+  }
+}
+
+.appContainer {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+  position: relative;
+  min-height: 100vh;
+}
+
+
+
+.contentBox {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 200px 0px 0px 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: 450px;
+  
+}
+
+
+.contentBox1 {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0px 200px 200px 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin-right: 450px;
+}
+
+
+.leftSection {
+  width: 50%;
+}
+
+.leftSection img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  margin-left: 200px;
+}
+
+
+.leftSection1 img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+}
+.rightSection {
+  width: 50%;
+  padding: 20px;
+}
+
+
+.rightSection h3,
+.rightSection h2 {
+  margin-bottom: 10px;
+  color: #8b004b;
+  margin: 40px;
+}
+
+.rightSection p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-left: 60px;
+  
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 200px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.imageContainer img {
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .contentBox,
+  .contentBox1 {
+    flex-direction: column;
+    border-radius: 15px;
+    margin: 10px;
+  }
+
+  .leftSection img {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .rightSection {
+    padding: 10px;
+  }
+
+  .rightSection h3,
+  .rightSection h2 {
+    margin: 20px 0 10px 0;
+    text-align: center;
+  }
+
+  .rightSection p {
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  .imageContainer {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .imageContainer img {
+    width: 80%;
+    margin: 10px 0;
+  }
+
+  .sidebarLeft,
+  .sidebarRight {
+    display: none;
+  }
+}

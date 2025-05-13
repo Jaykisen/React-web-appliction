@@ -1,0 +1,130 @@
+/* Base styles for the navbar */
+.navbar {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
+}
+
+/* Container for the navbar */
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 200px;
+}
+
+/* Logo styling */
+.logo img {
+  max-height: 50px; /* Set a maximum height for the logo */
+  width: auto; /* Maintain aspect ratio */
+  display: block;
+}
+
+/* Links container */
+.navLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+  justify-content: flex-end; /* Align links to the right */
+  align-items: center;
+  flex: 1;
+  transition: all 0.3s ease; /* Smooth transition for layout */
+}
+
+/* Individual link styling */
+.navLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px; /* Slight rounding for links */
+}
+
+/* Hover effect for links */
+.navLinks a:hover {
+  background-color: #ff7a00; /* Hover background */
+  color: #ffffff;
+}
+
+/* Hamburger menu button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 2000; /* Ensure hamburger is on top */
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 5px; /* Slightly rounded bars for smoother look */
+}
+
+/* Mobile navbar toggle */
+.navLinks.active {
+  display: flex; /* Show nav links when active */
+  position: absolute;
+  top: 60px; /* Position below navbar */
+  left: 0;
+  right: 0;
+  background-color: #333;
+  padding: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+  .navContainer {
+    padding: 0 15px; /* Adjust padding for smaller screens */
+  }
+
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex; /* Display hamburger on mobile */
+  }
+
+  /* Hide nav links initially on mobile */
+  .navLinks {
+    display: none; /* Hide links by default on mobile */
+    width: 100%; /* Full width on mobile */
+    justify-content: center; /* Center the items */
+    flex-direction: column;
+    gap: 20px; /* More space between links */
+    text-align: center;
+  }
+
+  /* Adjust nav links when they are active */
+  .navLinks.active {
+    display: flex; /* Show links when active */
+    position: absolute;
+    top: 60px; /* Adjust based on the navbar height */
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 20px 0;
+  }
+
+  /* Adjust individual link styles on mobile */
+  .navLinks a {
+    font-size: 18px; /* Increase font size for better visibility */
+    padding: 10px 15px; /* Adjust padding */
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden; /* Disable horizontal scrolling */
+  }
+}

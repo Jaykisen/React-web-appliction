@@ -1,0 +1,155 @@
+.testimonialsSection {
+  text-align: center;
+  padding: 0 230px; 
+  /* background-color: #f9f9f9; */
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 60px;
+  margin-left: auto;  /* Ensure proper margin on left side */
+  margin-right: auto; /* Ensure proper margin on right side */
+  margin-bottom: 50px;
+}
+
+strong {
+  color: #fda31b;
+  font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    border-bottom: 2px solid var(--theme-color2);
+    margin-top: 200px;
+}
+
+.fa-book-open-reader:before, .fa-book-reader:before {
+  content: "\f5da";
+}
+
+
+.heading {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.highlight {
+  color: #f7931e;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 40px; /* Space between cards */
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1200px; /* Max width for the grid */
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 60px 60px 60px 0;
+  width: 100%;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+  border-bottom: 5px solid var(--theme-color2);
+}
+
+.card:hover {
+  /* transform: translateY(-10px); */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.rating {
+  color: #ff9800;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  margin-right: 200px;
+}
+
+.feedback {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 0.8rem;
+  border: 2px solid #f7931e;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.role {
+  color: #f7931e;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-right: 65px;
+}
+
+.score {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background: #f7931e;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 70px 70px 70px 0;
+}
+
+.score i {
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .testimonialsSection {
+    padding: 0 20px;
+  }
+
+  .cardsContainer {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .rating {
+    margin-right: 50px;
+  }
+}
+
+
+
