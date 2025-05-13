@@ -32,5 +32,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "dist/*"             # ✅ Sends only the contents of dist/
           target: "/var/www/html"      # ✅ This is where Nginx serves files from
-          rm: true                     # ✅ Clean up after upload
+          rm:  false                # ✅ Clean up after upload
           strip_components: 1          # ✅ Avoid nesting dist/ in target
